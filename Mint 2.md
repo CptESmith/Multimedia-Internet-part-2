@@ -302,7 +302,8 @@ There are also some performance issue with the tree and the forest topology. If 
 <strong>Provisional Responses:</strong> are used to let the transaction knows that the request is being processing. PRES are never final, they don’t mean that the request has been fully processed. For example in case of long requests the client must know that the request is in processing, so PRES messages are sent periodically from the server to the client to keep the client updated so that he will keep waiting the final response. Sending periodic provisional responses makes the TCP keep the connection alive. This is a problem we don’t have with UDP because UDP has no connection.</p>
 <p><strong>SIP messages:</strong> they can be wither requests or responses. SIP has been one of the first signaling protocol to have textual format messages as opposed to traditional signaling protocols in which they are binary. This is usually an advantages even if textual messages consume more bandwidth.<br>
 The <em>request line</em> specifies the type of request and its parameters.<br>
-<strong>Body</strong> of SIP messages: can carry almost everything, it is not standardized like the body of HTTP. The most frequent body is application/SDP that is used for the navigation of the media.</p>
+<strong>Body</strong> of SIP messages: can carry almost everything, it is not standardized like the body of HTTP. The most frequent body is application/SDP that is used for the navigation of the media.<br>
+E.g for a SIP address: <a href="mailto:diego@home.com">diego@home.com</a></p>
 <p><strong>SIP request methods:</strong></p>
 <ul>
 <li>invite, to start a session</li>
