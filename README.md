@@ -1,6 +1,6 @@
 Some info for Multimedia Internet part 2 exam:
 
-The exam is gonna be 12 open questions with the same weight to do in 1 hour, so it 5 minute per question.
+The exam is gonna be 12 open questions with the same weight to do in 1 hour, so you have 5 minute per question.
 
 No notes allowed.
 
