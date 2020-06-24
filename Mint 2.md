@@ -291,10 +291,12 @@ There are also some performance issue with the tree and the forest topology. If 
 <p><strong>Registrar server:</strong> it handles SIP registration requests. Those requests are used by devices to register into the SIP network and they are mandatory for any device.</p>
 <p><strong>Basic call:</strong></p>
 <ul>
-<li>invite message</li>
-<li>PRES (Provisional Response) send back to the caller to signal him that the device of the called user is ringing</li>
-<li>RES: OK, the call has been accepted  and it has been set up</li>
-<li>REQ: BYE, when someone hungs up the call</li>
+<li>INVITE message</li>
+<li><em>Ringing</em>, a PRES (Provisional Response) send back to the caller to signal him that the device of the called user is ringing</li>
+<li>OK,  response to signal that the call has been accepted and it has been set up</li>
+<li>ACK-OK</li>
+<li>BYE, request when someone hungs up the call</li>
+<li>OK</li>
 </ul>
 <p><strong>Transaction:</strong> a software object that describes the session and in particular its phases.<br>
 <strong>Provisional Responses:</strong> are used to let the transaction knows that the request is being processing. PRES are never final, they don’t mean that the request has been fully processed. For example in case of long requests the client must know that the request is in processing, so PRES messages are sent periodically from the server to the client to keep the client updated so that he will keep waiting the final response. Sending periodic provisional responses makes the TCP keep the connection alive. This is a problem we don’t have with UDP because UDP has no connection.</p>
