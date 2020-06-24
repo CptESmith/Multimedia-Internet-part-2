@@ -198,3 +198,66 @@ SIP is a client/server protocol:
 - **Client:** called User Agent Client (UAC), is in the user's device, sends SIP requestes.
 - **Server:** there are four types of server proxy, registrar, redirect, User Agent Server (UAS). The last one is in the user's device and receives SIP requests.
 
+**Registrar server:** it handles SIP registration requests. Those requests are used by devices to register into the SIP network and they are mandatory for any device.
+
+**Basic call:** 
+- invite message
+- PRES (Provisional Response) send back to the caller to signal him that the device of the called user is ringing
+- RES: OK, the call has been accepted  and it has been set up
+- REQ: BYE, when someone hungs up the call
+
+**Transaction:** a software object that describes the session and in particular its phases.
+**Provisional Responses:** are used to let the transaction knows that the request is being processing. PRES are never final, they don't mean that the request has been fully processed. For example in case of long requests the client must know that the request is in processing, so PRES messages are sent periodically from the server to the client to keep the client updated so that he will keep waiting the final response. Sending periodic provisional responses makes the TCP keep the connection alive. This is a problem we don't have with UDP because UDP has no connection.
+
+**SIP messages:** they can be wither requests or responses. SIP has been one of the first signaling protocol to have textual format messages as opposed to traditional signaling protocols in which they are binary. This is usually an advantages even if textual messages consume more bandwidth.
+The *request line* specifies the type of request and its parameters.
+**Body** of SIP messages: can carry almost everything, it is not standardized like the body of HTTP. The most frequent body is application/SDP that is used for the navigation of the media.
+
+**SIP request methods:** 
+- invite, to start a session
+-  bye, to close a session
+-  register, to register a user in the SIP network
+- ack, acknowledge
+- options,
+- cancel, to cancel a signaling transaction
+
+Request:
+> method request URI version\r\n
+
+Response:
+> version statuscode reason phrase\r\n
+
+Status code is three digit:
+- 1XX: provisional
+- 2XX: success, the most important is 200 OK
+- 3XX: redirection
+- 4XX: bad request failure, the request message is not well formed. E.g. 404 not found: the resource has not been found
+- 5XX: server failure
+- 6XX: global failure
+
+All messages have **headers:**
+- General: (to, from, call ID) is a triplet specific of SIP that identifies called and calling users.
+- Request: only used for requests.
+- Response: only used for responses.
+- Entity: their main purpose is to describe the content of the message body.
+- VIA: specifies the SIP route followed by the request message, so that response can use the same path backwards. The response must follow the same path backwards because proxies are generally stateful: they remember the dialogues of the messages that they forward, so via headers are used to guarantee that the SIP path of responses is the backward path of requests.
+
+# Session Description Protocol (SDP)
+SDP is used for the description of the format of media streams. For each media stream of a session, an SDP description is needed. SDP descriptions are carried in the body of SIP messages and they enable *media negotiation*.
+Media negotiation happens with a two way handshake, and it is very simple compared to the media negotiation of previous signaling protocols like H.323.
+> Note that SDP does not trnsport media: it is used only for their description.
+
+# Interworking of signaling
+To make different signaling protocols interoperate we use interworking, that is one of the most complex problems of telephony. The two main problems are in the control plane where we use different signaling protocol and in the user plane where we have different media formats.
+
+Media gateways translate the media, while signaling gateways interwork signaling.
+Media gateways are controlled by Media Gateway Controllers (MGC) and they communicate using a specialized signaling protocol such as the Media Gateway Control Protocol (MGCP). MGCs and signaling gateway need to intercommunicate, so a gateway architecture is created.
+
+**Soft switch** is a distributed system for interworking that manages separately media and signaling. MH**Soft switch** is a distributed system for interworking. MGCs intercommunicate through SIP. MGCs communicate with media gateways with MGCP.
+MGC specifies how a media gateway must translate media, and can require dynamic change ofmedia format.
+The basi objects managed by MGCP are theendpoints. MGCP connections are logical mapping between endpoints and RTP/UDP/IP streams.
+
+SS7 is the traditional common channe signaling protocol.
+ISUP is an application protocl to setup and tear down connections. The path of a connection can be different from the path of signaling.
+SIGTRAN, Signaling Transport has the objective of transporting SS/ signaling over IP. Problems: address translation, message incapsulation, transport over IP (both UDP and TCP are not good solutions for the transport of SS7 over ip, so it has been developed SCTP), interworking MGC/SG.
+SCTP, Stream Control Transport Public provides a reliable transport for signaling interworking. It has been developed because TCP is not reliable enough for SIGTRAN.
