@@ -344,15 +344,14 @@ Media negotiation happens with a two way handshake, and it is very simple compar
 <blockquote>
 <p>Note that SDP does not trnsport media: it is used only for their description.</p>
 </blockquote>
-<h1 id="interworking-of-signaling">Interworking of signaling</h1>
-<p>To make different signaling protocols interoperate we use interworking, that is one of the most complex problems of telephony. The two main problems are in the control plane where we use different signaling protocol and in the user plane where we have different media formats.</p>
-<p>Media gateways translate the media, while signaling gateways interwork signaling.<br>
-Media gateways are controlled by Media Gateway Controllers (MGC) and they communicate using a specialized signaling protocol such as the Media Gateway Control Protocol (MGCP). MGCs and signaling gateway need to intercommunicate, so a gateway architecture is created.</p>
-<p><strong>Soft switch</strong> is a distributed system for interworking that manages separately media and signaling. MH<strong>Soft switch</strong> is a distributed system for interworking. MGCs intercommunicate through SIP. MGCs communicate with media gateways with MGCP.<br>
-MGC specifies how a media gateway must translate media, and can require dynamic change ofmedia format.<br>
-The basi objects managed by MGCP are theendpoints. MGCP connections are logical mapping between endpoints and RTP/UDP/IP streams.</p>
-<p>SS7 is the traditional common channe signaling protocol.<br>
-ISUP is an application protocl to setup and tear down connections. The path of a connection can be different from the path of signaling.<br>
-SIGTRAN, Signaling Transport has the objective of transporting SS/ signaling over IP. Problems: address translation, message incapsulation, transport over IP (both UDP and TCP are not good solutions for the transport of SS7 over ip, so it has been developed SCTP), interworking MGC/SG.<br>
+<h1 id="signaling-interworking">Signaling interworking</h1>
+<p>The goal is to make different signaling protocols interoperate, that is one of the most complex problems of telephony. The two main problems are in the control plane where we use different signaling protocol and in the user plane where we have different media formats. The signaling protocols that we consider are H.323, SS7 (traditional signaling protocol of the public switched telephone network) and SIP.</p>
+<p><em>Media gateways</em> translate the media, while <em>signaling gateways</em> interwork signaling.<br>
+Media gateways are controlled by <strong>Media Gateway Controllers (MGC)</strong> and they communicate using a specialized signaling protocol such as the <strong>Media Gateway Control Protocol (MGCP)</strong>. MGCs and signaling gateway aka MGCP need to intercommunicate, so a gateway architecture is created.</p>
+<p><strong>Soft switch</strong> is a distributed system for interworking that manages separately media and signaling. MGCs intercommunicate through SIP. MGCs communicate with media gateways with MGCP.<br>
+MGC specifies how a media gateway must translate media, and can require dynamic change of media format.<br>
+The basic objects managed by MGCP are theendpoints. MGCP connections are logical mapping between endpoints and RTP/UDP/IP streams.</p>
+<p>ISUP is an application protocl to setup and tear down connections. The path of a connection can be different from the path of signaling.</p>
+<p>SIGTRAN, Signaling Transport has the objective of transporting SS/ signaling over IP. Problems: address translation, message incapsulation, transport over IP (both UDP and TCP are not good solutions for the transport of SS7 over ip, so it has been developed SCTP), interworking MGC/SG.<br>
 SCTP, Stream Control Transport Public provides a reliable transport for signaling interworking. It has been developed because TCP is not reliable enough for SIGTRAN.</p>
 
