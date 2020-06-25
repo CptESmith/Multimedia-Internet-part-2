@@ -107,7 +107,7 @@ The cost of this operation varies depending on where you change operator:</p>
 </ul>
 <p>Is TOIP a full replacement of POTS? Not really.</p>
 <h1 id="multimedia-streaming">Multimedia streaming</h1>
-<p>It is the distribution of audio and video content. The content is consumed during its transfer.</p>
+<p>In classical file transfer the user downloads the content and then he uses it later on. In multimedia streaming the audio and video content  is consumed during its transfer.</p>
 <blockquote>
 <p>Two main flavors:</p>
 <ul>
@@ -348,13 +348,22 @@ Media negotiation happens with a two way handshake, and it is very simple compar
 <p>Note that SDP does not transport media: it is used only for their description.</p>
 </blockquote>
 <h1 id="signaling-interworking">Signaling interworking</h1>
-<p>The goal is to make different signaling protocols interoperate, that is one of the most complex problems of telephony. The two main problems are in the control plane where we use different signaling protocol and in the user plane where we have different media formats. The signaling protocols that we consider are H.323, SS7 (traditional signaling protocol of the public switched telephone network) and SIP.</p>
-<p><em>Media gateways</em> translate the media, while <em>signaling gateways</em> translate the signaling.<br>
-Media gateways are controlled by <strong>Media Gateway Controllers (MGC)</strong> and they communicate using a specialized signaling protocol such as the <strong>Media Gateway Control Protocol (MGCP)</strong>. MGCs and signaling gateway aka MGCP need to intercommunicate, so a gateway architecture is created.</p>
-<p><strong>Soft switch</strong> is a distributed system for interworking that manages separately media and signaling. MGCs intercommunicate through SIP. MGCs communicate with media gateways with MGCP.<br>
-MGC specifies how a media gateway must translate media, and can require dynamic change of media format.<br>
-The basic objects managed by MGCP are the endpoints. MGCP connections are logical mapping between endpoints and RTP/UDP/IP streams.</p>
-<p>ISUP is an application protocol to setup and tear down connections. The path of a connection can be different from the path of signaling.</p>
-<p>SIGTRAN, Signaling Transport has the objective of transporting SS7 signaling over IP. Problems: address translation, message incapsulation, transport over IP (both UDP and TCP are not good solutions for the transport of SS7 over ip, so it has been developed SCTP), interworking MGC/SG.<br>
+<p>The goal is to make different signaling protocols interoperate, that is one of the most complex problems of telephony. The two main problems are in the control plane where we use different signaling protocol and in the user plane where we have different media formats. The signaling protocols that we consider are H.323, SS7 and SIP.</p>
+<p>A logical and physical separation of media and signaling translation can provide multiple benefits. However, in such a distributed architecture, an additional signaling protocol is needed to allow communications among gateways and gateway controllers.<br>
+<em>Media gateways</em> translate the media, while <em>signaling gateways</em> translate the signaling.</p>
+<p>Media gateways are controlled by <strong>Media Gateway Controllers (MGC)</strong> and they communicate using a specialized signaling protocol such as the <strong>Media Gateway Control Protocol (MGCP)</strong>.</p>
+<p>MGCs and MGCP need to intercommunicate, so a gateway architecture is created. This distributed architecture is called <strong>soft switch</strong>. Soft switch manages separately media and signaling.</p>
+<h2 id="softswitch">Softswitch</h2>
+<p><strong>Soft switch</strong> is a distributed system for interworking that manages separately media and signaling.</p>
+<p>MGCs intercommunicate through SIP. MGCs communicate with media gateways with MGCP.</p>
+<p>MGC specifies how a media gateway must translate media, and can require dynamic change of media format.</p>
+<p>The basic objects managed by MGCP are the endpoints.</p>
+<p>MGCP connections are logical mapping between endpoints and RTP/UDP/IP streams.</p>
+<h1 id="isup">ISUP</h1>
+<p>ISDN User Part (ISUP) is an application protocol to setup and tear down connections. The path of a connection can be different from the path of signaling.</p>
+<h1 id="ss7">SS7</h1>
+<p>SS7 is the traditional signaling protocol of the public switched telephone network. The simplified architecture of SS7 is, starting from the bottom: MTP-1, MTP-2, MTP-3 and ISUP, where MTP stands for Message Transfer Part.</p>
+<h1 id="signqaling-transport-sigtran">Signqaling Transport (SigTran)</h1>
+<p>SigTran architecture has the objective of transporting SS7 signaling over IP. Problems: address translation, message incapsulation, transport over IP (both UDP and TCP are not good solutions for the transport of SS7 over ip, so it has been developed SCTP), interworking MGC/SG.<br>
 SCTP, Stream Control Transport Public provides a reliable transport for signaling interworking. It has been developed because TCP is not reliable enough for SIGTRAN.</p>
 
