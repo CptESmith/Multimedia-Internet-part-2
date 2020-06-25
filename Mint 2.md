@@ -179,10 +179,10 @@ The name of the headers are standardized. The headers are divided into four cate
 </ul>
 <p>The <strong>body</strong> is a sequence of bytes, and it can carry any kind of content: a text, a picture, a video clip, json file… It is <em>byte clean</em>, meaning that any value is allowed since there is no interpretation of byte value.</p>
 <h2 id="https">HTTPS</h2>
-<p>HyperText Transfer Protocol over Secure Socket Layer<br>
+<p>Hyper Text Transfer Protocol over Secure Socket Layer.<br>
 Respect to HTTP adds encryption to the data transfer. In plain HTTP the structure is, starting from the bottom, TCP, HTTP without encryption. In HTTPS the architecture is TCP, TLS (Transport Layer Security), HTTP. TLS can be certificate based (the most common) or Private Shared Key (PSK) based, that is faster, but in which the key is usually not exchanged through the network.</p>
 <h2 id="rtsp">RTSP</h2>
-<p>Real Time Streaming Protocol<br>
+<p>Real Time Streaming Protocol.<br>
 Fully integrated with other important internet protocols such that: HTTP, SDP (Session Description Protocol), RTP (Real Time Protocol). Gives features such: start, pause, jump, fast forward, fast reverse.</p>
 <p>Example: an user’s terminal wants a video/audio content. The exchange messages will be with two logically separated entities.</p>
 <ul>
@@ -240,30 +240,30 @@ rtsp/1.0 200 OK</p>
 <h2 id="video-server">Video server</h2>
 <p>System for streaming, started in the 1990s has not a lucky beginning. There are a lot of parameters that should be taken into account:</p>
 <ul>
-<li>Storage: video files occupies a very large storage space. We need to consider how many contents do we have and how much do they weight. One way to store lot of contents without spending too much money is to use Redundant Array of Inexpensive Disks (RAID). <strong>Replication factor:</strong> how many times we have stored a content, it determines its reliability.</li>
+<li>Storage: video files occupies a very large storage space. We need to consider how many contents do we have and how much do they weight. One way to store lot of contents without spending too much money is to use <em>Redundant Array of Inexpensive Disks (RAID)</em>. <strong>Replication factor:</strong> how many times we have stored a content, it determines its reliability.</li>
 </ul>
 <blockquote>
-<p>There are two main types of hard drives: HDD that are rotational drivers, are slow, but not much expensive and SDD solid state that are much faster, but also more expensive.</p>
+<p>There are two main types of hard drives: <strong>HDD (Hard Disk Drive)</strong> that are rotational drivers, are slow, but not much expensive and <strong>SSD (Solid State Drive)</strong> that are much faster, but also more expensive.</p>
 </blockquote>
 <ul>
-<li>speed of loading the content</li>
-<li>access time</li>
-<li>cost</li>
+<li>Speed of loading the content</li>
+<li>Access time</li>
+<li>Costs</li>
 </ul>
 <p>The <strong>long tail graph</strong> put in relation the <strong>hit rate</strong> (how many people watches each content) with the number of contents.<br>
 We can divide the CPs into two main categories depending of their hit rate:</p>
 <ul>
-<li><strong>High hit rate:</strong> left side of the graph, with smaller number of contents, high definition, large storage for each content, payed service, require Ultra Large Bandwidth (ULB) network access, acquisition of content is expensive. IPTV.</li>
-<li><strong>Long tail:</strong> right side of the graph, with large number of contents, low definition, small storage space for each content, free service, doe not require ULB, acquisition of content is mainly free. Internet TV.</li>
+<li><strong>High hit rate:</strong> left side of the graph, with smaller number of contents, high definition, large storage for each content, payed service, require Ultra Large Bandwidth (ULB) network access, acquisition of content is expensive. <em>IPTV.</em></li>
+<li><strong>Long tail:</strong> right side of the graph, with large number of contents, low definition, small storage space for each content, free service, doe not require ULB, acquisition of content is mainly free. <em>Internet TV.</em></li>
 </ul>
 <h2 id="media-formats">Media formats</h2>
 <p>A digital video is a sequence of images. The frequency of those images is called <strong>frame rate</strong>. Standard FPS are between 25 and 40, but 8k has more than 100 FPS (UHD). The typical resolution is 1280x720 for HD, 1920x1080 for FULL-HD, that are pixels x pixels. A pixel is a colored dot.<br>
 Color spaces:</p>
 <ul>
-<li><strong>RGB:</strong> it defines the amount of Red, Green and Blue in each pixel</li>
+<li><strong>RGB:</strong> it defines the amount of Red, Green and Blue in each pixel.</li>
 <li><strong>YCrCb:</strong> amount of Y luminance (<em>luma</em>, the most important), Cr red and Cb blue (the lasts two indicator are called <em>chroma</em>). The sampling can be configured in various ways: 4:4:4 is fully sampled, 4:2:2 has less information (the chroma components are halved) so it occupies smaller storage and uses less bandwidth and 4:2:0 where the most dominant characteristic is the luminance which is transmitted every pixel, while the chroma are distributed in 4 pixels each.</li>
 </ul>
-<p>The bit rate for transmitting a FULL HD video is too high if the media is not compressed. The formats for storage are different from the formats for transmission. An optimized way to compress video files is compression by prediction that works in most of cases, with some exceptions ( first scene of “Silence of the lamb”).</p>
+<p>The bit rate for transmitting a FULL HD video is too high if the media is not compressed. The formats for storage are different from the formats for transmission. An optimized way to compress video files is <em>compression by prediction</em> that works in most of cases, with some exceptions ( first scene of “Silence of the lamb”).</p>
 <h2 id="video-formats">Video formats</h2>
 <p>There is no optimal video format for all cases, there is always a trade off between quality and bandwidth. Video files are made of 2 parts:</p>
 <ul>
@@ -271,26 +271,27 @@ Color spaces:</p>
 <li><strong>Codec:</strong> is the protocol for encoding and decoding the video.</li>
 </ul>
 <h2 id="iptv-and-internet-tv">IPTV and Internet TV</h2>
-<p>The IPTV (Internet Protocol Television) is a high quality service distribution of digital TV using both dedicated network infrastructure and public internet. The Internet TV is the distribution of the media through the public internet usually with low quality, but smaller bit rate.<br>
-IPTV is a linear/push type of content distributor: its programs transmission is scheduled; it can also have an archive with older content, so it can also be a pull type content provider. Internet TV is a non linear/pull type: users ask for a specific content whenever they want.<br>
-The users in the IPTV are known and registered and they are authenticated usually with a set of box + smart card, while in the Internet TV the user can be anyone. IPTV is a payed service while Internet TV is free. IPTV has high quality contents while Internet TV have web based content. Contents in IPTV are protected, while contents in Internet TV are not.</p>
+<p>The <strong>IPTV (Internet Protocol Television)</strong> is a high quality service distribution of digital TV using both dedicated network infrastructure and public internet. The <strong>Internet TV</strong> is the distribution of the media through the public internet usually with low quality, but smaller bit rate.</p>
+<p>IPTV is a linear/push type of content distributor: its programs transmission is scheduled; it can also have an archive with older content, so it can also be a pull type content provider. Internet TV is a non linear/pull type: users ask for a specific content whenever they want.</p>
+<p>The users in the IPTV are known and registered and they are authenticated usually with a set of box + smart card, while in the Internet TV the user can be anyone. IPTV is a payed service while Internet TV is free. IPTV has high quality contents while Internet TV have web based content. Contents in IPTV are protected, while contents in Internet TV are not.</p>
 <h2 id="peer-to-peer-p2p-video-streaming">Peer-to-peer (P2P) video streaming</h2>
-<p>We are not gonna study the underlay topology aka the physical layer that can be very long. We focus on the overlay topology that is virtual and build by the nodes autonomously since those two topologies are usually independent one from another. There are three main overlay topologies: <strong>tree</strong> hierarchical topology, single point of failure, <strong>forest</strong> that is made by multiple trees interconnected and resolves the single point of failure problem and <strong>mesh</strong> where a leave event might be unnoticed. Tree and forest topologies are hierarchical, while the mesh topology is a generic one not hierarchical.<br>
-There are also some performance issue with the tree and the forest topology. If the depth of a tree grows too much, the last leafs of are gonna have high delay and packet loss respect to high level nodes. So this type of topologies are particularly effected by the depth of trees, so deep trees should be avoided, but it was not possible to do so until a few years ago (ADSL era, limit on uplink). Wide trees should be preferred.</p>
+<p>We are not gonna study the <em>underlay topology</em> aka the physical layer that can be very long. We focus on the <em>overlay topology</em> that is virtual and build by the nodes autonomously since those two topologies are usually independent one from another.</p>
+<p>There are three main overlay topologies: <strong>tree</strong> hierarchical topology, single point of failure, <strong>forest</strong> that is made by multiple trees interconnected and resolves the single point of failure problem and <strong>mesh</strong> where a leave event might be unnoticed. Tree and forest topologies are hierarchical, while the mesh topology is a generic one not hierarchical.</p>
+<p>There are also some performance issue with the tree and the forest topology. If the depth of a tree grows too much, the last leafs are gonna have high delay and packet loss respect to high level nodes. So this type of topologies are particularly effected by the depth of trees, so deep trees should be avoided, but it was not possible to do so until a few years ago (ADSL era, limit on uplink). Wide trees should be preferred.</p>
 <p>Construction of topology for tree and forest topologies:</p>
 <ul>
-<li><strong>join:</strong> when a node wants to join a network.</li>
-<li><strong>rejoin:</strong> when a node becomes an orphan (the node at which it is connect leave) and it must rejoin the network.</li>
+<li><strong>Join:</strong> when a node wants to join a network.</li>
+<li><strong>Rejoin:</strong> when a node becomes an orphan (the node at which it is connect leave) and it must rejoin the network.</li>
 </ul>
 <p>In mesh topology the join and rejoin operations are more complicated, but it can guarantee more performance and stability. Every peer has its own <strong>Buffer Map</strong> (BM) used to keep record of the segments it has received. The peers exchange periodically their BM, and each node builds and maintains in real time the m cache that is a matrix composed by all the BM of the other nodes. When a node needs a segment of a media it knows which peer have it. This type of topology is robust to leave event. The main problem is when a node has too few neighbors. There is an optimal number of neighbors a node should have to not have too many BM exchanges or too less peers to ask for content.</p>
 <p><strong>Node selection:</strong> when a node is joining or rejoining a network, it has to take into account various metrics such as <em>ping time</em> .</p>
-<p>For tree and forest topologies joining close to the root is better than joining at a leaf, but the competition is stronger. The system might keep track of the stability of a peer, so that the join/rejoin operation close to the root can e done only to high stable peers.</p>
+<p>For tree and forest topologies joining close to the root is better than joining at a leaf, but the competition is stronger. The system might keep track of the stability of a peer, so that the join/rejoin operation close to the root can be done only to high stable peers.</p>
 <h2 id="sip-session-initiation-protocol">SIP: Session Initiation Protocol</h2>
-<p>SIP is a signaling protocol. It handles the set up, tear down and management of IP multimedia sessions. It is naturally integrated with other internet protocols such that SDP, RTSP and SAP (Session Announcement Protocol). SIP usually adopts RTP as a transport for media streams.</p>
+<p>SIP is a <em>signaling protocol</em>. It handles the set up, tear down and management of IP multimedia sessions. It is naturally integrated with other internet protocols such that SDP, RTSP and SAP (Session Announcement Protocol). SIP usually adopts RTP as a transport for media streams.</p>
 <p>SIP is a client/server protocol:</p>
 <ul>
-<li><strong>Client:</strong> called User Agent Client (UAC), is in the user’s device, sends SIP requestes.</li>
-<li><strong>Server:</strong> there are four types of server proxy, registrar, redirect, User Agent Server (UAS). The last one is in the user’s device and receives SIP requests.</li>
+<li><strong>Client:</strong> called <strong>User Agent Client (UAC)</strong>, is in the user’s device, sends SIP requestes.</li>
+<li><strong>Server:</strong> there are four types of server <strong>proxy, registrar, redirect, User Agent Server (UAS)</strong>. The last one is in the user’s device and receives SIP requests.</li>
 </ul>
 <p><strong>Registrar server:</strong> it handles SIP registration requests. Those requests are used by devices to register into the SIP network and they are mandatory for any device.</p>
 <p><strong>Basic call:</strong></p>
@@ -302,13 +303,10 @@ There are also some performance issue with the tree and the forest topology. If 
 <li>BYE, request when someone hungs up the call</li>
 <li>OK</li>
 </ul>
-<p><strong>Transaction:</strong> a software object that describes the session and in particular its phases.<br>
-<strong>Provisional Responses:</strong> are used to let the transaction knows that the request is being processing. PRES are never final, they don’t mean that the request has been fully processed. For example in case of long requests the client must know that the request is in processing, so PRES messages are sent periodically from the server to the client to keep the client updated so that he will keep waiting the final response. Sending periodic provisional responses makes the TCP keep the connection alive. This is a problem we don’t have with UDP because UDP has no connection.</p>
-<p><strong>SIP messages:</strong> they can be wither requests or responses. SIP has been one of the first signaling protocol to have textual format messages as opposed to traditional signaling protocols in which they are binary. This is usually an advantages even if textual messages consume more bandwidth.<br>
-The <em>request line</em> specifies the type of request and its parameters.<br>
-<strong>Body</strong> of SIP messages: can carry almost everything, it is not standardized like the body of HTTP.<br>
-In case of media format information, the structure of the message body is standardized by SDP, that is the most frequent body used for the navigation of the media.<br>
-E.g. for a SIP address: <a href="mailto:diego@home.com">diego@home.com</a></p>
+<p><strong>Transaction:</strong> a software object that describes the session and in particular its phases.</p>
+<p><strong>Provisional Responses:</strong> are used to let the transaction knows that the request is being processing. PRES are never final, they don’t mean that the request has been fully processed. For example in case of long requests the client must know that the request is in processing, so PRES messages are sent periodically from the server to the client to keep the client updated so that he will keep waiting the final response. Sending periodic provisional responses makes the TCP keep the connection alive. This is a problem we don’t have with UDP because UDP has no connection.</p>
+<p><strong>SIP messages:</strong> they can be either requests or responses. SIP has been one of the first signaling protocol to have <em>textual format messages</em> as opposed to traditional signaling protocols in which they are binary. This is usually an advantages even if textual messages consume more bandwidth.</p>
+<p>The <strong>request line</strong> specifies the type of request and its parameters.</p>
 <p><strong>SIP request methods:</strong></p>
 <ul>
 <li>invite, to start a session</li>
@@ -346,6 +344,9 @@ E.g. for a SIP address: <a href="mailto:diego@home.com">diego@home.com</a></p>
 <blockquote>
 <p>Proxies are generally stateful: they remember the dialogues of the messages that they forward, so via headers are used to guarantee that the SIP path of responses is the backward path of requests.</p>
 </blockquote>
+<p>The <strong>body</strong> of SIP messages can carry almost everything, it is not standardized like the body of HTTP.<br>
+In case of media format information, the structure of the message body is standardized by SDP, that is the most frequent body used for the navigation of the media.</p>
+<p>E.g. of a SIP address: <a href="mailto:diego@home.com">diego@home.com</a></p>
 <h2 id="session-description-protocol-sdp">Session Description Protocol (SDP)</h2>
 <p>SDP is used for the description of the format of media streams. For each media stream of a session, an SDP description is needed. SDP descriptions are carried in the body of SIP messages and they enable <em>media negotiation</em>.<br>
 Media negotiation happens with a two way handshake, and it is very simple compared to the media negotiation of previous signaling protocols like H.323.</p>
@@ -353,22 +354,23 @@ Media negotiation happens with a two way handshake, and it is very simple compar
 <p>Note that SDP does not transport media: it is used only for their description.</p>
 </blockquote>
 <h2 id="signaling-interworking">Signaling interworking</h2>
-<p>The goal is to make different signaling protocols interoperate, that is one of the most complex problems of telephony. The two main problems are in the control plane where we use different signaling protocol and in the user plane where we have different media formats. The signaling protocols that we consider are H.323, SS7 and SIP.</p>
-<p>A logical and physical separation of media and signaling translation can provide multiple benefits. However, in such a distributed architecture, an additional signaling protocol is needed to allow communications among gateways and gateway controllers.<br>
-<strong>Media Gateways (MG)</strong> translate the media, while <strong>Signaling Gateways (SG)</strong> translate the signaling.</p>
+<p>The goal is to make different signaling protocols interoperate, that is one of the most complex problems of telephony. The two main problems are in the control plane where we use <em>different signaling protocol</em> and in the user plane where we have <em>different media formats</em>. The signaling protocols that we consider are H.323, SS7 and SIP.</p>
+<p>A logical and physical separation of media and signaling translation can provide multiple benefits. However, in such a distributed architecture, an additional signaling protocol is needed to allow communications among gateways and gateway controllers.</p>
+<p><strong>Media Gateways (MG)</strong> translate the media, while <strong>Signaling Gateways (SG)</strong> translate the signaling.</p>
 <p>MG are controlled by <strong>Media Gateway Controllers (MGC)</strong> and they communicate using a specialized signaling protocol such as the <strong>Media Gateway Control Protocol (MGCP)</strong>.</p>
-<p>MGC and MGCP need to intercommunicate, so a gateway architecture is created. This distributed architecture is called <strong>soft switch</strong>. Soft switch manages separately media and signaling.</p>
+<p>MGC and MGCP need to intercommunicate, so a <strong>gateway architecture</strong> is created. This distributed architecture is called <strong>soft switch</strong>. Soft switch manages separately media and signaling.</p>
 <h2 id="softswitch">Softswitch</h2>
 <p><strong>Soft switch</strong> is a distributed system for interworking that manages separately media and signaling.</p>
-<p>MGCs intercommunicate through SIP. MGCs communicate with MG with MGCP.</p>
+<p>MGCs communicate through SIP.</p>
+<p>MGC communicate with MG with MGCP.</p>
 <p>MGC specifies how a MG must translate media, and can require dynamic change of media format.</p>
-<p>The basic objects managed by MGCP are the endpoints.</p>
 <p>MGCP connections are logical mapping between endpoints and RTP/UDP/IP streams.</p>
 <h2 id="isup">ISUP</h2>
 <p>ISDN User Part (ISUP) is an application protocol to setup and tear down connections. The path of a connection can be different from the path of signaling.</p>
 <h2 id="ss7">SS7</h2>
 <p>SS7 is the traditional signaling protocol of the public switched telephone network. The simplified architecture of SS7 is, starting from the bottom: MTP-1, MTP-2, MTP-3 and ISUP, where MTP stands for Message Transfer Part.</p>
 <h2 id="signaling-transport-sigtran">Signaling Transport (SigTran)</h2>
-<p>SigTran architecture has the objective of transporting SS7 signaling over IP. Problems: address translation, message incapsulation, transport over IP (both UDP and TCP are not good solutions for the transport of SS7 over IP, so it has been developed SCTP), interworking MGC/SG.</p>
+<p>SigTran architecture has the objective of transporting SS7 signaling over IP.</p>
+<p>Problems: address translation, message incapsulation, transport over IP (both UDP and TCP are not good solutions for the transport of SS7 over IP, so it has been developed SCTP), interworking MGC/SG.</p>
 <p>SCTP, Stream Control Transport Public provides a reliable transport for signaling interworking. It has been developed because TCP is not reliable enough for SIGTRAN.</p>
 
