@@ -342,7 +342,7 @@ E.g. for a SIP address: <a href="mailto:diego@home.com">diego@home.com</a></p>
 <p>SDP is used for the description of the format of media streams. For each media stream of a session, an SDP description is needed. SDP descriptions are carried in the body of SIP messages and they enable <em>media negotiation</em>.<br>
 Media negotiation happens with a two way handshake, and it is very simple compared to the media negotiation of previous signaling protocols like H.323.</p>
 <blockquote>
-<p>Note that SDP does not trnsport media: it is used only for their description.</p>
+<p>Note that SDP does not transport media: it is used only for their description.</p>
 </blockquote>
 <h1 id="signaling-interworking">Signaling interworking</h1>
 <p>The goal is to make different signaling protocols interoperate, that is one of the most complex problems of telephony. The two main problems are in the control plane where we use different signaling protocol and in the user plane where we have different media formats. The signaling protocols that we consider are H.323, SS7 (traditional signaling protocol of the public switched telephone network) and SIP.</p>
