@@ -82,7 +82,7 @@ The cost of this operation varies depending on where you change operator:</p>
 <h2 id="services-of-operators">Services of operators</h2>
 <p>In a Next Generation Access Network (NGAN) the services provided are:</p>
 <ul>
-<li><strong>intermediate service:</strong> a typical example is the connection of mobile network antennas to the core network aka <em>backhauling</em>. Another example is the tube rental, where an operator rents tube to other operators.</li>
+<li><strong>Intermediate service:</strong> a typical example is the connection of mobile network antennas to the core network aka <em>backhauling</em>. Another example is the tube rental, where an operator rents tube to other operators.</li>
 </ul>
 <blockquote>
 <p>Various solutions for backhauling:</p>
@@ -93,8 +93,8 @@ The cost of this operation varies depending on where you change operator:</p>
 </ul>
 </blockquote>
 <ul>
-<li><strong>wholesale service:</strong> inter-operator services like wholesale line rental, wholesale leased line, unbundling, colocation. Wholesale services are not traded in single units, but in large stocks.</li>
-<li><strong>retail service</strong></li>
+<li><strong>Wholesale service:</strong> inter-operator services like wholesale line rental, wholesale leased line, unbundling, colocation. Wholesale services are not traded in single units, but in large stocks.</li>
+<li><strong>Retail service</strong></li>
 </ul>
 <p>The basic requirements for operators to trade this kind of services are that the QoS must be negotiable both at the connection setup and when the connection is established, and there is also have to be a minimal list of voice, audio and video coders that should be supported.</p>
 <h2 id="telephony-over-ip-toip">Telephony Over IP (TOIP)</h2>
@@ -119,11 +119,11 @@ The cost of this operation varies depending on where you change operator:</p>
 <p>The chain of the service stream is composed by:</p>
 <ul>
 <li>DB, where is stored the content</li>
-<li>server</li>
-<li>coder, to make the content format compatible with network transportation</li>
-<li>network</li>
-<li>playout buffer</li>
-<li>playout service</li>
+<li>Server</li>
+<li>Coder, to make the content format compatible with network transportation</li>
+<li>Network</li>
+<li>Playout buffer</li>
+<li>Playout service</li>
 </ul>
 <p>The media transfer is unidirectional form the server to the client.</p>
 <p>The control informations (<em>signaling</em>) on the control plane are bidirectional, and they are used to set up the connection, to negotiate the media, to get quality feedback in real time, to interact with the playout and to tear down the connection.</p>
@@ -136,9 +136,9 @@ The cost of this operation varies depending on where you change operator:</p>
 <h2 id="internet-protocols">Internet protocols</h2>
 <p>Internet protocols are the structure and the format of messages. They are normally client-server protocols, where a client sends a request to a server, and the server replies with a response. The ones we are interested in are:</p>
 <ul>
-<li>HTTP (HyperText Transfer Protocol): plaintext, not encrypted</li>
-<li>HTTPS: information is encrypted</li>
-<li>SIP, RTSP: specific for signaling</li>
+<li>HTTP (Hyper Text Transfer Protocol): plaintext, not encrypted.</li>
+<li>HTTPS: information is encrypted.</li>
+<li>SIP, RTSP: specific for signaling.</li>
 </ul>
 <p>A typical HTTP request message has the following structure:</p>
 <blockquote>
@@ -155,8 +155,8 @@ body</p>
 <blockquote>
 <p>method request-uri protocol-version</p>
 </blockquote>
-<p>It has three fields separated by a single space character. The first one is the method, that specifies the kind of action that the requesting entity would like to perform. The second field specifies which is the resource on which the action must be performed, and the third field which specifies the protocol identity and version.<br>
-Example:</p>
+<p>It has three fields separated by a single space character. The first one is the method, that specifies the kind of action that the requesting entity would like to perform. The second field specifies which is the resource on which the action must be performed. The third field specifies the protocol identity and version.</p>
+<p>Example:</p>
 <blockquote>
 <p>GET /serviceA?parameter=n_request HTTP/1.1</p>
 </blockquote>
@@ -164,26 +164,27 @@ Example:</p>
 <blockquote>
 <p><a href="http://myservice.com/serviceA?parameters.required=n_requests">http://myservice.com/serviceA?parameters.required=n_requests</a></p>
 </blockquote>
-<p>If the <strong>Universal Resource Identifier (URI)</strong> starts with http:// it means that we are using the HTTP protocol.<br>
-The name of the headers are standardized. The headers are divided into four categories:</p>
+<p>If the <strong>Universal Resource Identifier (URI)</strong> starts with http:// it means that we are using the HTTP protocol.</p>
+<p>The name of the headers are standardized. The headers are divided into four categories:</p>
 <ul>
-<li><strong>General</strong> headers: provide details on the connection between the server and the client. It can be connection: close or connection: keep alive.</li>
+<li><strong>General</strong> headers: provide details on the <strong>connection</strong> between the server and the client. It can be connection: close or connection: keep alive.</li>
 </ul>
 <blockquote>
 <p>There are two main way to establish and maintain a connection. In the first case for every request a connection is established and closed. In the second case we maintain a connection for multiple requests, a more efficient way to use a connection with latency diminishing and throughput improving. In the second case we can also use <strong>pipeline:</strong> the client sends requests even if it has not received the responses of the previous messages. In this way we can improve a lot the throughput.</p>
 </blockquote>
 <ul>
-<li><strong>Request</strong> headers: there are various <em>methods:</em> GET, PUT, POST (to make a complicated request), DELETE.</li>
+<li><strong>Request</strong> headers: there are various <strong>methods:</strong> GET, PUT, POST (to make a complicated request), DELETE.</li>
 <li><strong>Response</strong> headers, same structure of a request message, but it can use some headers that are not used by request messages, for example HTTP/1.1 200 OK.</li>
-<li><strong>Entity</strong> headers: information about the content carried in the body of the message, for example the <em>content_length</em> header that indicates how many bytes the content is long and when start considering the next packet.</li>
+<li><strong>Entity</strong> headers: information about the content carried in the <strong>body</strong> of the message, for example the <em>content_length</em> header that indicates how many bytes the content is long and when start considering the next packet.</li>
 </ul>
+<blockquote>
 <p>The <strong>body</strong> is a sequence of bytes, and it can carry any kind of content: a text, a picture, a video clip, json file… It is <em>byte clean</em>, meaning that any value is allowed since there is no interpretation of byte value.</p>
+</blockquote>
 <h2 id="https">HTTPS</h2>
 <p>Hyper Text Transfer Protocol over Secure Socket Layer.<br>
-Respect to HTTP adds encryption to the data transfer. In plain HTTP the structure is, starting from the bottom, TCP, HTTP without encryption. In HTTPS the architecture is TCP, TLS (Transport Layer Security), HTTP. TLS can be certificate based (the most common) or Private Shared Key (PSK) based, that is faster, but in which the key is usually not exchanged through the network.</p>
-<h2 id="rtsp">RTSP</h2>
-<p>Real Time Streaming Protocol.<br>
-Fully integrated with other important internet protocols such that: HTTP, SDP (Session Description Protocol), RTP (Real Time Protocol). Gives features such: start, pause, jump, fast forward, fast reverse.</p>
+Respect to HTTP adds encryption to the data transfer. In plain HTTP the structure is, starting from the bottom, TCP, HTTP without encryption. In HTTPS the architecture is TCP, <strong>TLS (Transport Layer Security),</strong> HTTP. TLS can be certificate based (the most common) or Private Shared Key (PSK) based, that is faster, but in which the key is usually not exchanged through the network.</p>
+<h2 id="real-time-streaming-protocol-rtsp">Real Time Streaming Protocol (RTSP)</h2>
+<p>Fully integrated with other important internet protocols such that: HTTP, SDP (Session Description Protocol), RTP (Real Time Protocol). Gives features such: <strong>start, pause, jump, fast forward, fast reverse.</strong></p>
 <p>Example: an user’s terminal wants a video/audio content. The exchange messages will be with two logically separated entities.</p>
 <ul>
 <li>
@@ -270,6 +271,10 @@ Color spaces:</p>
 <li><strong>Container:</strong> that is how the file, metadata and data are structured. It contains the metadata and the compressed video data encoded using the codec. Generally is called the <em>format</em>, because it reflects the file’s extension.</li>
 <li><strong>Codec:</strong> is the protocol for encoding and decoding the video.</li>
 </ul>
+<h2 id="video-transcoding">Video transcoding</h2>
+<p>Video transcoding is the process of converting compressed video signals to adapt video characteristics to meet the specifications of communication channels and endpoint devices.</p>
+<p>Video signals are compressed and decompressed with the techniques of the video coding. The compression is often called enCOder and decompression DECoder, and they are collectively called <strong>CODEC</strong>.</p>
+<p>Therefore a CODEC is the collection of methods used to compress and decompress digital videos.</p>
 <h2 id="iptv-and-internet-tv">IPTV and Internet TV</h2>
 <p>The <strong>IPTV (Internet Protocol Television)</strong> is a high quality service distribution of digital TV using both dedicated network infrastructure and public internet. The <strong>Internet TV</strong> is the distribution of the media through the public internet usually with low quality, but smaller bit rate.</p>
 <p>IPTV is a linear/push type of content distributor: its programs transmission is scheduled; it can also have an archive with older content, so it can also be a pull type content provider. Internet TV is a non linear/pull type: users ask for a specific content whenever they want.</p>
