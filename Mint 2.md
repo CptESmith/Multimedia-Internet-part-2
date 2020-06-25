@@ -354,13 +354,13 @@ Media negotiation happens with a two way handshake, and it is very simple compar
 <h2 id="signaling-interworking">Signaling interworking</h2>
 <p>The goal is to make different signaling protocols interoperate, that is one of the most complex problems of telephony. The two main problems are in the control plane where we use different signaling protocol and in the user plane where we have different media formats. The signaling protocols that we consider are H.323, SS7 and SIP.</p>
 <p>A logical and physical separation of media and signaling translation can provide multiple benefits. However, in such a distributed architecture, an additional signaling protocol is needed to allow communications among gateways and gateway controllers.<br>
-<em>Media gateways</em> translate the media, while <em>signaling gateways</em> translate the signaling.</p>
-<p>Media gateways are controlled by <strong>Media Gateway Controllers (MGC)</strong> and they communicate using a specialized signaling protocol such as the <strong>Media Gateway Control Protocol (MGCP)</strong>.</p>
-<p>MGCs and MGCP need to intercommunicate, so a gateway architecture is created. This distributed architecture is called <strong>soft switch</strong>. Soft switch manages separately media and signaling.</p>
+<strong>Media Gateways (MG)</strong> translate the media, while <strong>Signaling Gateways (SG)</strong> translate the signaling.</p>
+<p>MG are controlled by <strong>Media Gateway Controllers (MGC)</strong> and they communicate using a specialized signaling protocol such as the <strong>Media Gateway Control Protocol (MGCP)</strong>.</p>
+<p>MGC and MGCP need to intercommunicate, so a gateway architecture is created. This distributed architecture is called <strong>soft switch</strong>. Soft switch manages separately media and signaling.</p>
 <h2 id="softswitch">Softswitch</h2>
 <p><strong>Soft switch</strong> is a distributed system for interworking that manages separately media and signaling.</p>
-<p>MGCs intercommunicate through SIP. MGCs communicate with media gateways with MGCP.</p>
-<p>MGC specifies how a media gateway must translate media, and can require dynamic change of media format.</p>
+<p>MGCs intercommunicate through SIP. MGCs communicate with MG with MGCP.</p>
+<p>MGC specifies how a MG must translate media, and can require dynamic change of media format.</p>
 <p>The basic objects managed by MGCP are the endpoints.</p>
 <p>MGCP connections are logical mapping between endpoints and RTP/UDP/IP streams.</p>
 <h2 id="isup">ISUP</h2>
