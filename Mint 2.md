@@ -276,23 +276,29 @@ Color spaces:</p>
 <p>Video signals are compressed and decompressed with the techniques of the video coding. The compression is often called enCOder and decompression DECoder, and they are collectively called <strong>CODEC</strong>.</p>
 <p>Therefore a CODEC is the collection of methods used to compress and decompress digital videos.</p>
 <h2 id="iptv-and-internet-tv">IPTV and Internet TV</h2>
-<p>The <strong>IPTV (Internet Protocol Television)</strong> is a high quality service distribution of digital TV using both dedicated network infrastructure and public internet. The <strong>Internet TV</strong> is the distribution of the media through the public internet usually with low quality, but smaller bit rate.</p>
-<p>IPTV is a linear/push type of content distributor: its programs transmission is scheduled; it can also have an archive with older content, so it can also be a pull type content provider. Internet TV is a non linear/pull type: users ask for a specific content whenever they want.</p>
-<p>The users in the IPTV are known and registered and they are authenticated usually with a set of box + smart card, while in the Internet TV the user can be anyone. IPTV is a payed service while Internet TV is free. IPTV has high quality contents while Internet TV have web based content. Contents in IPTV are protected, while contents in Internet TV are not.</p>
+<p>The <strong>IPTV (Internet Protocol Television)</strong> is a high quality service distribution of digital TV using both <em>dedicated network infrastructure</em> and <em>public internet</em>.<br>
+The <strong>Internet TV</strong> is the distribution of the media through the public internet usually with low quality, but smaller bit rate.</p>
+<p>IPTV is a linear/push type of content distributor: its programs transmission is scheduled; it can also have an archive with older content, so it can also be a pull type content provider.<br>
+Internet TV is a non linear/pull type: users ask for a specific content whenever they want.</p>
+<p>The users in the IPTV are known and registered and they are authenticated usually with a set of box + smart card, while in the Internet TV the user can be anyone.<br>
+IPTV is a payed service while Internet TV is free.<br>
+IPTV has high quality contents while Internet TV have web based content.<br>
+Contents in IPTV are protected, while contents in Internet TV are not.</p>
 <h2 id="peer-to-peer-p2p-video-streaming">Peer-to-peer (P2P) video streaming</h2>
 <p>We are not gonna study the <em>underlay topology</em> aka the physical layer that can be very long. We focus on the <em>overlay topology</em> that is virtual and build by the nodes autonomously since those two topologies are usually independent one from another.</p>
 <p>There are three main overlay topologies: <strong>tree</strong> hierarchical topology, single point of failure, <strong>forest</strong> that is made by multiple trees interconnected and resolves the single point of failure problem and <strong>mesh</strong> where a leave event might be unnoticed. Tree and forest topologies are hierarchical, while the mesh topology is a generic one not hierarchical.</p>
-<p>There are also some performance issue with the tree and the forest topology. If the depth of a tree grows too much, the last leafs are gonna have high delay and packet loss respect to high level nodes. So this type of topologies are particularly effected by the depth of trees, so deep trees should be avoided, but it was not possible to do so until a few years ago (ADSL era, limit on uplink). Wide trees should be preferred.</p>
+<p>There are also some performance issue with the tree and the forest topology. If the depth of a tree grows too much, the last leafs are gonna have high delay and packet loss respect to high level nodes. So this type of topologies are particularly affected by the depth of trees, so deep trees should be avoided, but it was not possible to do so until a few years ago (ADSL era, limit on uplink). Wide trees should be preferred.</p>
 <p>Construction of topology for tree and forest topologies:</p>
 <ul>
 <li><strong>Join:</strong> when a node wants to join a network.</li>
 <li><strong>Rejoin:</strong> when a node becomes an orphan (the node at which it is connect leave) and it must rejoin the network.</li>
 </ul>
-<p>In mesh topology the join and rejoin operations are more complicated, but it can guarantee more performance and stability. Every peer has its own <strong>Buffer Map</strong> (BM) used to keep record of the segments it has received. The peers exchange periodically their BM, and each node builds and maintains in real time the m cache that is a matrix composed by all the BM of the other nodes. When a node needs a segment of a media it knows which peer have it. This type of topology is robust to leave event. The main problem is when a node has too few neighbors. There is an optimal number of neighbors a node should have to not have too many BM exchanges or too less peers to ask for content.</p>
+<p>In mesh topology the join and rejoin operations are more complicated, but they guarantee more performance and stability. Every peer has its own <strong>Buffer Map (BM)</strong> used to keep record of the segments it has received. The peers exchange periodically their BM (signaling), and each node builds and maintains in real time the <strong>m cache</strong> that is a matrix composed by all the BM of the other nodes. When a node needs a segment of a media it knows which peer have it. This type of topology is robust to leave event, that can be unnoticed at first.<br>
+The main problem is when a node has too few neighbors. There is an optimal number of neighbors a node should have to not have too many BM exchanges or too less peers to ask for content.</p>
 <p><strong>Node selection:</strong> when a node is joining or rejoining a network, it has to take into account various metrics such as <em>ping time</em> .</p>
 <p>For tree and forest topologies joining close to the root is better than joining at a leaf, but the competition is stronger. The system might keep track of the stability of a peer, so that the join/rejoin operation close to the root can be done only to high stable peers.</p>
-<h2 id="sip-session-initiation-protocol">SIP: Session Initiation Protocol</h2>
-<p>SIP is a <em>signaling protocol</em>. It handles the set up, tear down and management of IP multimedia sessions. It is naturally integrated with other internet protocols such that SDP, RTSP and SAP (Session Announcement Protocol). SIP usually adopts RTP as a transport for media streams.</p>
+<h2 id="session-initiation-protocol-sip">Session Initiation Protocol (SIP)</h2>
+<p>SIP is a <strong>signaling protocol</strong>. It handles the <strong>set up, tear down and management of IP multimedia sessions</strong>. It is naturally integrated with other internet protocols such that SDP, RTSP and SAP (Session Announcement Protocol). SIP usually adopts RTP as a transport for media streams.</p>
 <p>SIP is a client/server protocol:</p>
 <ul>
 <li><strong>Client:</strong> called <strong>User Agent Client (UAC)</strong>, is in the user’s device, sends SIP requestes.</li>
@@ -329,7 +335,7 @@ Color spaces:</p>
 <blockquote>
 <p>version status-code reason-phrase\r\n</p>
 </blockquote>
-<p>Status code is three digit:</p>
+<p><strong>Status code</strong> is three digit:</p>
 <ul>
 <li>1XX: provisional</li>
 <li>2XX: success, the most important is 200 OK</li>
@@ -344,23 +350,23 @@ Color spaces:</p>
 <li><strong>Request:</strong> only used for requests.</li>
 <li><strong>Response:</strong> only used for responses.</li>
 <li><strong>Entity:</strong> their main purpose is to describe the content of the message body.</li>
-<li><strong>VIA:</strong> specifies the SIP route followed by the request message, so that response can use the same path backwards when proxies are used in signaling. Each SIP devices touched by a SIP message ads a VIA header carrying its address. In this way, the path of SIP devices crossed by a message is written in the message header. The response must follow the same path backwards. In the backward path of responses, VIA headers are stripped from the message at each SIP hop.</li>
+<li><strong>VIA:</strong> specifies the SIP route followed by the request message, so that response can use the same path backwards when proxies are used in signaling. Each SIP devices touched by a SIP message adds a VIA header carrying its address. In this way, the path of SIP devices crossed by a message is written in the message header. The response must follow the same path backwards. In the backward path of responses, VIA headers are stripped from the message at each SIP hop.</li>
 </ul>
 <blockquote>
 <p>Proxies are generally stateful: they remember the dialogues of the messages that they forward, so via headers are used to guarantee that the SIP path of responses is the backward path of requests.</p>
 </blockquote>
-<p>The <strong>body</strong> of SIP messages can carry almost everything, it is not standardized like the body of HTTP.<br>
-In case of media format information, the structure of the message body is standardized by SDP, that is the most frequent body used for the navigation of the media.</p>
+<p>The <strong>body</strong> of SIP messages can carry almost everything and, like the body of HTTP, it is not standardized.</p>
+<p>In case of media format information, the structure of the message body is standardized by SDP, that is the most frequent body used for the navigation of the media.</p>
 <p>E.g. of a SIP address: <a href="mailto:diego@home.com">diego@home.com</a></p>
 <h2 id="session-description-protocol-sdp">Session Description Protocol (SDP)</h2>
-<p>SDP is used for the description of the format of media streams. For each media stream of a session, an SDP description is needed. SDP descriptions are carried in the body of SIP messages and they enable <em>media negotiation</em>.<br>
-Media negotiation happens with a two way handshake, and it is very simple compared to the media negotiation of previous signaling protocols like H.323.</p>
+<p>SDP is used for the <strong>description of the format of media streams</strong>. For each media stream of a session, an SDP description is needed. SDP descriptions are carried in the body of SIP messages and they enable <em>media negotiation</em>.</p>
+<p>Media negotiation happens with a two way handshake, and it is very simple compared to the media negotiation of previous signaling protocols like H.323.</p>
 <blockquote>
 <p>Note that SDP does not transport media: it is used only for their description.</p>
 </blockquote>
 <h2 id="signaling-interworking">Signaling interworking</h2>
-<p>The goal is to make different signaling protocols interoperate, that is one of the most complex problems of telephony. The two main problems are in the control plane where we use <em>different signaling protocol</em> and in the user plane where we have <em>different media formats</em>. The signaling protocols that we consider are H.323, SS7 and SIP.</p>
-<p>A logical and physical separation of media and signaling translation can provide multiple benefits. However, in such a distributed architecture, an additional signaling protocol is needed to allow communications among gateways and gateway controllers.</p>
+<p>The goal is to make <strong>different signaling protocols interoperate</strong>, that is one of the most complex problems of telephony. The two main problems are in the control plane where we use <strong>different signaling protocol</strong> and in the user plane where we have <strong>different media formats</strong>. The signaling protocols that we consider are H.323, SS7 and SIP.</p>
+<p>A <strong>logical and physical separation of media and signaling translation</strong> can provide multiple benefits. However, in such a distributed architecture, an additional signaling protocol is needed to allow communications among gateways and gateway controllers.</p>
 <p><strong>Media Gateways (MG)</strong> translate the media, while <strong>Signaling Gateways (SG)</strong> translate the signaling.</p>
 <p>MG are controlled by <strong>Media Gateway Controllers (MGC)</strong> and they communicate using a specialized signaling protocol such as the <strong>Media Gateway Control Protocol (MGCP)</strong>.</p>
 <p>MGC and MGCP need to intercommunicate, so a <strong>gateway architecture</strong> is created. This distributed architecture is called <strong>soft switch</strong>. Soft switch manages separately media and signaling.</p>
@@ -375,7 +381,7 @@ Media negotiation happens with a two way handshake, and it is very simple compar
 <h2 id="ss7">SS7</h2>
 <p>SS7 is the traditional signaling protocol of the public switched telephone network. The simplified architecture of SS7 is, starting from the bottom: MTP-1, MTP-2, MTP-3 and ISUP, where MTP stands for Message Transfer Part.</p>
 <h2 id="signaling-transport-sigtran">Signaling Transport (SigTran)</h2>
-<p>SigTran architecture has the objective of transporting SS7 signaling over IP.</p>
+<p>SigTran architecture has the objective of <strong>transporting SS7 signaling over IP</strong>.</p>
 <p>Problems: address translation, message incapsulation, transport over IP (both UDP and TCP are not good solutions for the transport of SS7 over IP, so it has been developed SCTP), interworking MGC/SG.</p>
-<p>SCTP, Stream Control Transport Public provides a reliable transport for signaling interworking. It has been developed because TCP is not reliable enough for SIGTRAN.</p>
+<p><strong>SCTP, Stream Control Transport Public</strong> provides a reliable transport for signaling interworking. It has been developed because TCP is not reliable enough for SIGTRAN.</p>
 
