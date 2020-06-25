@@ -17,7 +17,8 @@
 </blockquote>
 <h2 id="carrier-grade-ip-telephony-vs-internet-telephony">Carrier Grade IP telephony vs internet telephony</h2>
 <p>In carrier grade IP telephony the telephony service is provided by telco operators. There is a specific resource reservation for carrier grade telephony, so the quality is good.<br>
-Internet telephony uses the public internet like Skype: the quality is worse than carrier grade.  Interconnections between aAS are bottleneck that delays packets and decreases quality. For telephony packets a delay is equivalent to a packet loss, and a losing a packet is noticed by users and degrade the quality of the call. The packets with too much delay are simply dropped. We can’t threat packets from telephony and packets from other applications equally. A very large speed alone is not enough to guarantee strictly QoS, but we need to combine it with good traffic management for example giving VOIP buffer more priority over the data buffer.</p>
+Internet telephony uses the public internet like Skype: the quality is worse than carrier grade.  Interconnections between ASs are bottleneck that delay packets and decreases quality. For telephony packets a delay is equivalent to a packet loss, and losing a packet is noticed by users and degrade the quality of the call. The packets with too much delay are simply dropped.<br>
+We can’t threat packets from telephony and packets from other applications equally. A very large speed alone is not enough to guarantee strictly QoS, but we need to combine it with good traffic management for example giving VOIP buffer more priority over the data buffer.</p>
 <h2 id="net-neutrality">Net neutrality</h2>
 <p>The approach is to not differentiate services on user identity, but to differentiate them based on which type of application the packets are from. E.g. VOIP buffer has priority over data buffer.</p>
 <p>Business in the internet is regulated by rules and laws that have technical consequences. The debate has been centered around policy, law and finance as if the network was a given thing, but it is not.</p>
@@ -39,7 +40,7 @@ Internet telephony uses the public internet like Skype: the quality is worse tha
 <p>A <strong>cache</strong> is a server that can store a content while it is transiting. They are placed in strategical points where the traffic is more intense. If a content is highly requested is convenient to store it in the cache. Caches can be place at high or low hierarchical level. Some advantages are: performance and quality and reducing the transit diminishing costs. They have inside them the <strong>Content Database</strong>.</p>
 </blockquote>
 <h2 id="next-generation-network-ngn">Next Generation Network (NGN)</h2>
-<p>In the traditional access network all the links are made of copper apart the links between the Central Office (CO) and the Service Distribution Frame (SDF), which is fiber. The copper links have a series of disadvantages respect to the fiber:</p>
+<p>In the traditional access network all the links are made of copper apart the links between the <strong>Central Office (CO)</strong> and the <strong>Service Distribution Frame (SDF)</strong>, which is fiber. The copper links have a series of disadvantages respect to the fiber:</p>
 <ul>
 <li>collect more external noise</li>
 <li>create more natural interferences</li>
@@ -124,8 +125,8 @@ The cost of this operation varies depending on where you change operator:</p>
 <li>playout buffer</li>
 <li>playout service</li>
 </ul>
-<p>The media transfer is unidirectional form the server to the client.<br>
-The control informations (<em>signaling</em>) on the control plane are bidirectional, and they are used to set up the connection, to negotiate the media, to get quality feedback in real time, to interact with the playout and to tear down the connection.</p>
+<p>The media transfer is unidirectional form the server to the client.</p>
+<p>The control informations (<em>signaling</em>) on the control plane are bidirectional, and they are used to set up the connection, to negotiate the media, to get quality feedback in real time, to interact with the playout and to tear down the connection.</p>
 <ul>
 <li>Streaming <strong>unicast:</strong> one distribution flow per user; total bandwidth required.</li>
 <li><strong>Caching:</strong> caches store contents and they replay stored content for new users requiring them; smaller bandwidth require. It can be done at different levels: higher is closer to the interconnection, lower is closer to the user.</li>
@@ -166,15 +167,15 @@ Example:</p>
 <p>If the <strong>Universal Resource Identifier (URI)</strong> starts with http:// it means that we are using the HTTP protocol.<br>
 The name of the headers are standardized. The headers are divided into four categories:</p>
 <ul>
-<li><strong>general headers:</strong> provide details on the connection between the server and the client. It can be connection: close or connection: keep alive.</li>
+<li><strong>General</strong> headers: provide details on the connection between the server and the client. It can be connection: close or connection: keep alive.</li>
 </ul>
 <blockquote>
 <p>There are two main way to establish and maintain a connection. In the first case for every request a connection is established and closed. In the second case we maintain a connection for multiple requests, a more efficient way to use a connection with latency diminishing and throughput improving. In the second case we can also use <strong>pipeline:</strong> the client sends requests even if it has not received the responses of the previous messages. In this way we can improve a lot the throughput.</p>
 </blockquote>
 <ul>
-<li><strong>request headers:,</strong> there are various methods: GET, PUT POST, POST (to make a complicated request), DELETE.</li>
-<li><strong>response headers,</strong> same structure of a request message, but it can use some headers that are not used by request messages, for example HTTP/1.1 200 OK.</li>
-<li><strong>entity headers:</strong> information about the content carried in the body of the message, for example the content_length header that indicates how many bytes the content is long and when start considering the next packet.</li>
+<li><strong>Request</strong> headers: there are various <em>methods:</em> GET, PUT, POST (to make a complicated request), DELETE.</li>
+<li><strong>Response</strong> headers, same structure of a request message, but it can use some headers that are not used by request messages, for example HTTP/1.1 200 OK.</li>
+<li><strong>Entity</strong> headers: information about the content carried in the body of the message, for example the <em>content_length</em> header that indicates how many bytes the content is long and when start considering the next packet.</li>
 </ul>
 <p>The <strong>body</strong> is a sequence of bytes, and it can carry any kind of content: a text, a picture, a video clip, json file… It is <em>byte clean</em>, meaning that any value is allowed since there is no interpretation of byte value.</p>
 <h2 id="https">HTTPS</h2>
