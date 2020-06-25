@@ -336,11 +336,11 @@ E.g. for a SIP address: <a href="mailto:diego@home.com">diego@home.com</a></p>
 </ul>
 <p>All messages have <strong>headers:</strong></p>
 <ul>
-<li>General: (to, from, call ID) is a triplet specific of SIP that identifies a transaction between two user terminals.</li>
-<li>Request: only used for requests.</li>
-<li>Response: only used for responses.</li>
-<li>Entity: their main purpose is to describe the content of the message body.</li>
-<li>VIA: specifies the SIP route followed by the request message, so that response can use the same path backwards when proxies are used in signaling. Each SIP devices touched by a SIP message ads a VIA header carrying its address. In this way, the path of SIP devices crossed by a message is written in the message header. The response must follow the same path backwards. In the backward path of responses, VIA headers are stripped from the message at each SIP hop.</li>
+<li><strong>General:</strong> (to, from, call ID) is a triplet specific of SIP that identifies a transaction between two user terminals.</li>
+<li><strong>Request:</strong> only used for requests.</li>
+<li><strong>Response:</strong> only used for responses.</li>
+<li><strong>Entity:</strong> their main purpose is to describe the content of the message body.</li>
+<li><strong>VIA:</strong> specifies the SIP route followed by the request message, so that response can use the same path backwards when proxies are used in signaling. Each SIP devices touched by a SIP message ads a VIA header carrying its address. In this way, the path of SIP devices crossed by a message is written in the message header. The response must follow the same path backwards. In the backward path of responses, VIA headers are stripped from the message at each SIP hop.</li>
 </ul>
 <blockquote>
 <p>Proxies are generally stateful: they remember the dialogues of the messages that they forward, so via headers are used to guarantee that the SIP path of responses is the backward path of requests.</p>
