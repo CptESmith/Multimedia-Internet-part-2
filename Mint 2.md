@@ -15,6 +15,12 @@
 <blockquote>
 <p><strong>VoLTE:</strong> it is a solution on the network side, where we give voice packets a better treatment respect to other type of packets to limit their delay.</p>
 </blockquote>
+<h2 id="carrier-grade-ip-telephony-vs-internet-telephony">Carrier Grade IP telephony vs internet telephony</h2>
+<p>In carrier grade IP telephony the telephony service is provided by telco operators. There is a specific resource reservation for carrier grade telephony, so the quality is good.<br>
+Internet telephony uses the public internet like Skype: the quality is worse than carrier grade.  Interconnections between aAS are bottleneck that delays packets and decreases quality. For telephony packets a delay is equivalent to a packet loss, and a losing a packet is noticed by users and degrade the quality of the call. The packets with too much delay are simply dropped. We can’t threat packets from telephony and packets from other applications equally. A very large speed alone is not enough to guarantee strictly QoS, but we need to combine it with good traffic management for example giving VOIP buffer more priority over the data buffer.</p>
+<h2 id="net-neutrality">Net neutrality</h2>
+<p>The approach is to not differentiate services on user identity, but to differentiate them based on which type of application the packets are from. E.g. VOIP buffer has priority over data buffer.</p>
+<p>Business in the internet is regulated by rules and laws that have technical consequences. The debate has been centered around policy, law and finance as if the network was a given thing, but it is not.</p>
 <h2 id="ip-interconnection">IP interconnection</h2>
 <p>The internet is a collection of networks called Autonomous Systems, that are administered by independent entities. The interconnection between two AS is a private contract between the two administrators. Usually traffic across interconnection interfaces is treated as best effort.</p>
 <ul>
@@ -32,9 +38,6 @@
 <blockquote>
 <p>A <strong>cache</strong> is a server that can store a content while it is transiting. They are placed in strategical points where the traffic is more intense. If a content is highly requested is convenient to store it in the cache. Caches can be place at high or low hierarchical level. Some advantages are: performance and quality and reducing the transit diminishing costs. They have inside them the <strong>Content Database</strong>.</p>
 </blockquote>
-<h2 id="net-neutrality">Net neutrality</h2>
-<p>The approach is to not differentiate services on user identity, but to differentiate them based on which type of application the packets are from. E.g. VOIP buffer has priority over data buffer.</p>
-<p>Business in the internet is regulated by rules and laws that have technical consequences. The debate has been centered around policy, law and finance as if the network was a given thing, but it is not.</p>
 <h2 id="next-generation-network-ngn">Next Generation Network (NGN)</h2>
 <p>In the traditional access network all the links are made of copper apart the links between the Central Office (CO) and the Service Distribution Frame (SDF), which is fiber. The copper links have a series of disadvantages respect to the fiber:</p>
 <ul>
