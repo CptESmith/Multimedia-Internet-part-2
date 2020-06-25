@@ -61,7 +61,7 @@ Internet telephony uses the public internet like Skype: the quality is worse tha
 <em>TDM-PON</em>, Time Division Multiplexing: it separates uplink and downlink through wave division. <em>Shared PON:</em>  easier to assign users to operators, and also sharing an infrastructure diminishes costs for the operators.</li>
 </ul>
 </blockquote>
-<h1 id="unbundling-and-colocation">Unbundling and colocation</h1>
+<h2 id="unbundling-and-colocation">Unbundling and colocation</h2>
 <p>Operations of changing an operator; they are mandatory and cannot be refused. They are usually done in strategical points for example between cabinets.<br>
 The cost of this operation varies depending on where you change operator:</p>
 <ul>
@@ -71,14 +71,14 @@ The cost of this operation varies depending on where you change operator:</p>
 <blockquote>
 <p><strong>OLO,</strong> Other Licensed Operators: new operators that are not former state company (<strong>incumbent operators</strong>).</p>
 </blockquote>
-<h1 id="business-issues-for-operators">Business issues for operators</h1>
+<h2 id="business-issues-for-operators">Business issues for operators</h2>
 <p>The deployment of the NGAN must be balanced between costs for the operatore and average money that the user will pay. The costs are not uniform, and they depend on the kind of territory:</p>
 <ul>
 <li><strong>Metropolitan</strong> areas: the deployment cost per user is low since the population density is high, and the costs are likely to be repayed by the costumers.</li>
 <li><strong>Suburban</strong> areas: middle costs and middle payment from the costumers between the two other cases.</li>
 <li><strong>Rural/mountain</strong> areas: from a business POV they are not convenient, because the population is sparse and the difficulties for deploying the fiber are high. In this case the state get involved contributing to the investment to permit even the people that live in less dense places to have NGAN.</li>
 </ul>
-<h1 id="services-of-operators">Services of operators</h1>
+<h2 id="services-of-operators">Services of operators</h2>
 <p>In a Next Generation Access Network (NGAN) the services provided are:</p>
 <ul>
 <li><strong>intermediate service:</strong> a typical example is the connection of mobile network antennas to the core network aka <em>backhauling</em>. Another example is the tube rental, where an operator rents tube to other operators.</li>
@@ -96,7 +96,7 @@ The cost of this operation varies depending on where you change operator:</p>
 <li><strong>retail service</strong></li>
 </ul>
 <p>The basic requirements for operators to trade this kind of services are that the QoS must be negotiable both at the connection setup and when the connection is established, and there is also have to be a minimal list of voice, audio and video coders that should be supported.</p>
-<h1 id="telephony-over-ip-toip">Telephony Over IP (TOIP)</h1>
+<h2 id="telephony-over-ip-toip">Telephony Over IP (TOIP)</h2>
 <p>IP telephony is a replacements for Plain Old Telephone Service (POTS). It has to have some services possible:</p>
 <ul>
 <li>numbering plan must be preserved</li>
@@ -106,7 +106,7 @@ The cost of this operation varies depending on where you change operator:</p>
 <li>interoperability with POTS guaranteed</li>
 </ul>
 <p>Is TOIP a full replacement of POTS? Not really.</p>
-<h1 id="multimedia-streaming">Multimedia streaming</h1>
+<h2 id="multimedia-streaming">Multimedia streaming</h2>
 <p>In classical file transfer the user downloads the content and then he uses it later on. In multimedia streaming the audio and video content  is consumed during its transfer.</p>
 <blockquote>
 <p>Two main flavors:</p>
@@ -132,7 +132,7 @@ The control informations (<em>signaling</em>) on the control plane are bidirecti
 <li><strong>Proxy server:</strong> owned and managed by the Service Provider (SP).</li>
 <li>Streaming <strong>multicast:</strong> ideal way of streaming the media, using multicast distribution. It is hard to use because most network do not support multicasting (IP for example, it has a primitive multicasting capacity adn cannot support high bandwidth services).</li>
 </ul>
-<h1 id="internet-protocols">Internet protocols</h1>
+<h2 id="internet-protocols">Internet protocols</h2>
 <p>Internet protocols are the structure and the format of messages. They are normally client-server protocols, where a client sends a request to a server, and the server replies with a response. The ones we are interested in are:</p>
 <ul>
 <li>HTTP (HyperText Transfer Protocol): plaintext, not encrypted</li>
@@ -177,10 +177,10 @@ The name of the headers are standardized. The headers are divided into four cate
 <li><strong>entity headers:</strong> information about the content carried in the body of the message, for example the content_length header that indicates how many bytes the content is long and when start considering the next packet.</li>
 </ul>
 <p>The <strong>body</strong> is a sequence of bytes, and it can carry any kind of content: a text, a picture, a video clip, json file… It is <em>byte clean</em>, meaning that any value is allowed since there is no interpretation of byte value.</p>
-<h1 id="https">HTTPS</h1>
+<h2 id="https">HTTPS</h2>
 <p>HyperText Transfer Protocol over Secure Socket Layer<br>
 Respect to HTTP adds encryption to the data transfer. In plain HTTP the structure is, starting from the bottom, TCP, HTTP without encryption. In HTTPS the architecture is TCP, TLS (Transport Layer Security), HTTP. TLS can be certificate based (the most common) or Private Shared Key (PSK) based, that is faster, but in which the key is usually not exchanged through the network.</p>
-<h1 id="rtsp">RTSP</h1>
+<h2 id="rtsp">RTSP</h2>
 <p>Real Time Streaming Protocol<br>
 Fully integrated with other important internet protocols such that: HTTP, SDP (Session Description Protocol), RTP (Real Time Protocol). Gives features such: start, pause, jump, fast forward, fast reverse.</p>
 <p>Example: an user’s terminal wants a video/audio content. The exchange messages will be with two logically separated entities.</p>
@@ -236,7 +236,7 @@ PLAY rtsp://video.source.com/mission_to_mars/video rtsp/1.0</p>
 rtsp/1.0 200 OK</p>
 </li>
 </ul>
-<h1 id="video-server">Video server</h1>
+<h2 id="video-server">Video server</h2>
 <p>System for streaming, started in the 1990s has not a lucky beginning. There are a lot of parameters that should be taken into account:</p>
 <ul>
 <li>Storage: video files occupies a very large storage space. We need to consider how many contents do we have and how much do they weight. One way to store lot of contents without spending too much money is to use Redundant Array of Inexpensive Disks (RAID). <strong>Replication factor:</strong> how many times we have stored a content, it determines its reliability.</li>
@@ -255,7 +255,7 @@ We can divide the CPs into two main categories depending of their hit rate:</p>
 <li><strong>High hit rate:</strong> left side of the graph, with smaller number of contents, high definition, large storage for each content, payed service, require Ultra Large Bandwidth (ULB) network access, acquisition of content is expensive. IPTV.</li>
 <li><strong>Long tail:</strong> right side of the graph, with large number of contents, low definition, small storage space for each content, free service, doe not require ULB, acquisition of content is mainly free. Internet TV.</li>
 </ul>
-<h1 id="media-formats">Media formats</h1>
+<h2 id="media-formats">Media formats</h2>
 <p>A digital video is a sequence of images. The frequency of those images is called <strong>frame rate</strong>. Standard FPS are between 25 and 40, but 8k has more than 100 FPS (UHD). The typical resolution is 1280x720 for HD, 1920x1080 for FULL-HD, that are pixels x pixels. A pixel is a colored dot.<br>
 Color spaces:</p>
 <ul>
@@ -263,17 +263,17 @@ Color spaces:</p>
 <li><strong>YCrCb:</strong> amount of Y luminance (<em>luma</em>, the most important), Cr red and Cb blue (the lasts two indicator are called <em>chroma</em>). The sampling can be configured in various ways: 4:4:4 is fully sampled, 4:2:2 has less information (the chroma components are halved) so it occupies smaller storage and uses less bandwidth and 4:2:0 where the most dominant characteristic is the luminance which is transmitted every pixel, while the chroma are distributed in 4 pixels each.</li>
 </ul>
 <p>The bit rate for transmitting a FULL HD video is too high if the media is not compressed. The formats for storage are different from the formats for transmission. An optimized way to compress video files is compression by prediction that works in most of cases, with some exceptions ( first scene of “Silence of the lamb”).</p>
-<h1 id="video-formats">Video formats</h1>
+<h2 id="video-formats">Video formats</h2>
 <p>There is no optimal video format for all cases, there is always a trade off between quality and bandwidth. Video files are made of 2 parts:</p>
 <ul>
 <li><strong>Container:</strong> that is how the file, metadata and data are structured. It contains the metadata and the compressed video data encoded using the codec. Generally is called the <em>format</em>, because it reflects the file’s extension.</li>
 <li><strong>Codec:</strong> is the protocol for encoding and decoding the video.</li>
 </ul>
-<h1 id="iptv-and-internet-tv">IPTV and Internet TV</h1>
+<h2 id="iptv-and-internet-tv">IPTV and Internet TV</h2>
 <p>The IPTV (Internet Protocol Television) is a high quality service distribution of digital TV using both dedicated network infrastructure and public internet. The Internet TV is the distribution of the media through the public internet usually with low quality, but smaller bit rate.<br>
 IPTV is a linear/push type of content distributor: its programs transmission is scheduled; it can also have an archive with older content, so it can also be a pull type content provider. Internet TV is a non linear/pull type: users ask for a specific content whenever they want.<br>
 The users in the IPTV are known and registered and they are authenticated usually with a set of box + smart card, while in the Internet TV the user can be anyone. IPTV is a payed service while Internet TV is free. IPTV has high quality contents while Internet TV have web based content. Contents in IPTV are protected, while contents in Internet TV are not.</p>
-<h1 id="peer-to-peer-p2p-video-streaming">Peer-to-peer (P2P) video streaming</h1>
+<h2 id="peer-to-peer-p2p-video-streaming">Peer-to-peer (P2P) video streaming</h2>
 <p>We are not gonna study the underlay topology aka the physical layer that can be very long. We focus on the overlay topology that is virtual and build by the nodes autonomously since those two topologies are usually independent one from another. There are three main overlay topologies: <strong>tree</strong> hierarchical topology, single point of failure, <strong>forest</strong> that is made by multiple trees interconnected and resolves the single point of failure problem and <strong>mesh</strong> where a leave event might be unnoticed. Tree and forest topologies are hierarchical, while the mesh topology is a generic one not hierarchical.<br>
 There are also some performance issue with the tree and the forest topology. If the depth of a tree grows too much, the last leafs of are gonna have high delay and packet loss respect to high level nodes. So this type of topologies are particularly effected by the depth of trees, so deep trees should be avoided, but it was not possible to do so until a few years ago (ADSL era, limit on uplink). Wide trees should be preferred.</p>
 <p>Construction of topology for tree and forest topologies:</p>
@@ -284,7 +284,7 @@ There are also some performance issue with the tree and the forest topology. If 
 <p>In mesh topology the join and rejoin operations are more complicated, but it can guarantee more performance and stability. Every peer has its own <strong>Buffer Map</strong> (BM) used to keep record of the segments it has received. The peers exchange periodically their BM, and each node builds and maintains in real time the m cache that is a matrix composed by all the BM of the other nodes. When a node needs a segment of a media it knows which peer have it. This type of topology is robust to leave event. The main problem is when a node has too few neighbors. There is an optimal number of neighbors a node should have to not have too many BM exchanges or too less peers to ask for content.</p>
 <p><strong>Node selection:</strong> when a node is joining or rejoining a network, it has to take into account various metrics such as <em>ping time</em> .</p>
 <p>For tree and forest topologies joining close to the root is better than joining at a leaf, but the competition is stronger. The system might keep track of the stability of a peer, so that the join/rejoin operation close to the root can e done only to high stable peers.</p>
-<h1 id="sip-session-initiation-protocol">SIP: Session Initiation Protocol</h1>
+<h2 id="sip-session-initiation-protocol">SIP: Session Initiation Protocol</h2>
 <p>SIP is a signaling protocol. It handles the set up, tear down and management of IP multimedia sessions. It is naturally integrated with other internet protocols such that SDP, RTSP and SAP (Session Announcement Protocol). SIP usually adopts RTP as a transport for media streams.</p>
 <p>SIP is a client/server protocol:</p>
 <ul>
@@ -341,13 +341,13 @@ E.g. for a SIP address: <a href="mailto:diego@home.com">diego@home.com</a></p>
 <li>Entity: their main purpose is to describe the content of the message body.</li>
 <li>VIA: specifies the SIP route followed by the request message, so that response can use the same path backwards. The response must follow the same path backwards because proxies are generally stateful: they remember the dialogues of the messages that they forward, so via headers are used to guarantee that the SIP path of responses is the backward path of requests.</li>
 </ul>
-<h1 id="session-description-protocol-sdp">Session Description Protocol (SDP)</h1>
+<h2 id="session-description-protocol-sdp">Session Description Protocol (SDP)</h2>
 <p>SDP is used for the description of the format of media streams. For each media stream of a session, an SDP description is needed. SDP descriptions are carried in the body of SIP messages and they enable <em>media negotiation</em>.<br>
 Media negotiation happens with a two way handshake, and it is very simple compared to the media negotiation of previous signaling protocols like H.323.</p>
 <blockquote>
 <p>Note that SDP does not transport media: it is used only for their description.</p>
 </blockquote>
-<h1 id="signaling-interworking">Signaling interworking</h1>
+<h2 id="signaling-interworking">Signaling interworking</h2>
 <p>The goal is to make different signaling protocols interoperate, that is one of the most complex problems of telephony. The two main problems are in the control plane where we use different signaling protocol and in the user plane where we have different media formats. The signaling protocols that we consider are H.323, SS7 and SIP.</p>
 <p>A logical and physical separation of media and signaling translation can provide multiple benefits. However, in such a distributed architecture, an additional signaling protocol is needed to allow communications among gateways and gateway controllers.<br>
 <em>Media gateways</em> translate the media, while <em>signaling gateways</em> translate the signaling.</p>
@@ -359,11 +359,11 @@ Media negotiation happens with a two way handshake, and it is very simple compar
 <p>MGC specifies how a media gateway must translate media, and can require dynamic change of media format.</p>
 <p>The basic objects managed by MGCP are the endpoints.</p>
 <p>MGCP connections are logical mapping between endpoints and RTP/UDP/IP streams.</p>
-<h1 id="isup">ISUP</h1>
+<h2 id="isup">ISUP</h2>
 <p>ISDN User Part (ISUP) is an application protocol to setup and tear down connections. The path of a connection can be different from the path of signaling.</p>
-<h1 id="ss7">SS7</h1>
+<h2 id="ss7">SS7</h2>
 <p>SS7 is the traditional signaling protocol of the public switched telephone network. The simplified architecture of SS7 is, starting from the bottom: MTP-1, MTP-2, MTP-3 and ISUP, where MTP stands for Message Transfer Part.</p>
-<h1 id="signqaling-transport-sigtran">Signqaling Transport (SigTran)</h1>
-<p>SigTran architecture has the objective of transporting SS7 signaling over IP. Problems: address translation, message incapsulation, transport over IP (both UDP and TCP are not good solutions for the transport of SS7 over ip, so it has been developed SCTP), interworking MGC/SG.<br>
-SCTP, Stream Control Transport Public provides a reliable transport for signaling interworking. It has been developed because TCP is not reliable enough for SIGTRAN.</p>
+<h2 id="signaling-transport-sigtran">Signaling Transport (SigTran)</h2>
+<p>SigTran architecture has the objective of transporting SS7 signaling over IP. Problems: address translation, message incapsulation, transport over IP (both UDP and TCP are not good solutions for the transport of SS7 over IP, so it has been developed SCTP), interworking MGC/SG.</p>
+<p>SCTP, Stream Control Transport Public provides a reliable transport for signaling interworking. It has been developed because TCP is not reliable enough for SIGTRAN.</p>
 
