@@ -305,7 +305,8 @@ There are also some performance issue with the tree and the forest topology. If 
 <strong>Provisional Responses:</strong> are used to let the transaction knows that the request is being processing. PRES are never final, they don’t mean that the request has been fully processed. For example in case of long requests the client must know that the request is in processing, so PRES messages are sent periodically from the server to the client to keep the client updated so that he will keep waiting the final response. Sending periodic provisional responses makes the TCP keep the connection alive. This is a problem we don’t have with UDP because UDP has no connection.</p>
 <p><strong>SIP messages:</strong> they can be wither requests or responses. SIP has been one of the first signaling protocol to have textual format messages as opposed to traditional signaling protocols in which they are binary. This is usually an advantages even if textual messages consume more bandwidth.<br>
 The <em>request line</em> specifies the type of request and its parameters.<br>
-<strong>Body</strong> of SIP messages: can carry almost everything, it is not standardized like the body of HTTP. The most frequent body is application/SDP that is used for the navigation of the media.<br>
+<strong>Body</strong> of SIP messages: can carry almost everything, it is not standardized like the body of HTTP.<br>
+In case of media format information, the structure of the message body is standardized by SDP, that is the most frequent body used for the navigation of the media.<br>
 E.g. for a SIP address: <a href="mailto:diego@home.com">diego@home.com</a></p>
 <p><strong>SIP request methods:</strong></p>
 <ul>
@@ -318,11 +319,11 @@ E.g. for a SIP address: <a href="mailto:diego@home.com">diego@home.com</a></p>
 </ul>
 <p>Request:</p>
 <blockquote>
-<p>method request URI version\r\n</p>
+<p>method request-uri version\r\n</p>
 </blockquote>
 <p>Response:</p>
 <blockquote>
-<p>version statuscode reason phrase\r\n</p>
+<p>version status-code reason-phrase\r\n</p>
 </blockquote>
 <p>Status code is three digit:</p>
 <ul>
@@ -335,12 +336,15 @@ E.g. for a SIP address: <a href="mailto:diego@home.com">diego@home.com</a></p>
 </ul>
 <p>All messages have <strong>headers:</strong></p>
 <ul>
-<li>General: (to, from, call ID) is a triplet specific of SIP that identifies called and calling users.</li>
+<li>General: (to, from, call ID) is a triplet specific of SIP that identifies a transaction between two user terminals.</li>
 <li>Request: only used for requests.</li>
 <li>Response: only used for responses.</li>
 <li>Entity: their main purpose is to describe the content of the message body.</li>
-<li>VIA: specifies the SIP route followed by the request message, so that response can use the same path backwards. The response must follow the same path backwards because proxies are generally stateful: they remember the dialogues of the messages that they forward, so via headers are used to guarantee that the SIP path of responses is the backward path of requests.</li>
+<li>VIA: specifies the SIP route followed by the request message, so that response can use the same path backwards when proxies are used in signaling. Each SIP devices touched by a SIP message ads a VIA header carrying its address. In this way, the path of SIP devices crossed by a message is written in the message header. The response must follow the same path backwards. In the backward path of responses, VIA headers are stripped from the message at each SIP hop.</li>
 </ul>
+<blockquote>
+<p>Proxies are generally stateful: they remember the dialogues of the messages that they forward, so via headers are used to guarantee that the SIP path of responses is the backward path of requests.</p>
+</blockquote>
 <h2 id="session-description-protocol-sdp">Session Description Protocol (SDP)</h2>
 <p>SDP is used for the description of the format of media streams. For each media stream of a session, an SDP description is needed. SDP descriptions are carried in the body of SIP messages and they enable <em>media negotiation</em>.<br>
 Media negotiation happens with a two way handshake, and it is very simple compared to the media negotiation of previous signaling protocols like H.323.</p>
