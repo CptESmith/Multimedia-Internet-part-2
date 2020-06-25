@@ -144,7 +144,7 @@ header line 2\r\n<br>
 …<br>
 header line n\r\n<br>
 \r\n<br>
-body\r\n</p>
+body</p>
 </blockquote>
 <p>The first line and the header lines are text strings, and they are separated by the <em>line separator</em> \r\n. The additional line separator after the last header line marks the start of the body of the message. There is no line terminator after the last byte of the body, so the <strong>content length header</strong> is fundamental because it identifies univocally the last byte of the current message.</p>
 <p>The <strong>request line</strong> (first line of the message) has the following structure:</p>
